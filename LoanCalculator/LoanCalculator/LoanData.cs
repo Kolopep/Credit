@@ -8,10 +8,10 @@ namespace LoanCalculator
 {
     class LoanData
     {
-        public int day;
-        public double bet;
-        public double accumulative;
-        public double paymentAmount;
+        public int day { get; set; }
+        public double bet { get; set; }
+        public double accumulative { get; set; }
+        public double paymentAmount { get; set; }
         public LoanData(int day, double bet, double accumulative, double paymentAmount)
         {
             this.accumulative = accumulative;

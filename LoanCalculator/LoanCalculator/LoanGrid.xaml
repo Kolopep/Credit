@@ -19,12 +19,12 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Source=loanDatas}" x:Name="LoanDataGrid" Grid.Row="1" Grid.ColumnSpan="4" Margin="10">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="LoanDataGrid" Grid.Row="1" Grid.ColumnSpan="4" Margin="10">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="auto" Header="День" Binding="{Binding accumulative}"></DataGridTextColumn>
-                <DataGridTextColumn Width="auto" Header="Ставка"></DataGridTextColumn>
-                <DataGridTextColumn Width="auto" Header="% (накопительно)"></DataGridTextColumn>
-                <DataGridTextColumn Width="auto" Header="Сумма выплаты"></DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Header="День" Binding="{Binding day}"></DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Header="Ставка" Binding="{Binding bet}"></DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Header="% (накопительно)" Binding="{Binding accumulative}"></DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Header="Сумма выплаты" Binding="{Binding paymentAmount}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.ColumnSpan="2">

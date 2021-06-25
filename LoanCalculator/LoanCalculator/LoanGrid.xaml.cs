@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,9 @@ namespace LoanCalculator
         {
             InitializeComponent();
             List<LoanData> loanDatas = new List<LoanData>();
-            bool temp = false;
             double bet;
-                bet = 0.90;
-                loanDatas.Add(new LoanData(0, bet, ((double)sum / 100) * bet, (((double)sum / 100) * bet) + sum));
+            bet = 0.90;
+            loanDatas.Add(new LoanData(0, bet, ((double)sum / 100) * bet, (((double)sum / 100) * bet) + sum));
             for (int i = 1; i < day; i++)
             {
                     if (i >= 0 && i <= 5)
@@ -46,7 +46,7 @@ namespace LoanCalculator
                         loanDatas.Add(new LoanData(i, bet, loanDatas[i - 1].accumulative + (((double)sum / 100) * bet), loanDatas[i - 1].accumulative + ((((double)sum / 100) * bet) + sum)));
                     }
             }
-            TBEffectiveBid.Text += $"{Math.Round(loanDatas[loanDatas.Count - 1].accumulative / sum / day, 2)} рублей";
+            TBEffectiveBid.Text += loanDatas[loanDatas.Count - 1].accumulative / sum / day;
             TBSumLoan.Text += sum;
             TBProcentSum.Text += loanDatas[loanDatas.Count - 1].accumulative;
             TBAllSumLoan.Text += loanDatas[loanDatas.Count - 1].accumulative + sum;
